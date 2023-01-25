@@ -13,31 +13,34 @@ public class ConsumerExample {
     }
 
     public static void main(String[] args) {
+        Customer customer = new Customer("Maria", "999-9999-9999");
+
         /**
          * 普通に書いた場合
          */
-        greetCustomer(new Customer("Maria", "999-9999-9999"));
+        greetCustomer(customer);
 
         /**
          * 引数が1つの場合
          */
-        Consumer<Customer> greetCustomerConsumer =
-                customer -> System.out.println("Hello " + customer.customerName + ", your phone number is : " + customer.customerPhoneNumber);
+        Consumer<Customer> greetCustomerConsumer = (c) -> {
+            System.out.println("Hello " + c.customerName + ", your phone number is : " + c.customerPhoneNumber);
+        };
 
-        greetCustomerConsumer.accept(new Customer("Maria", "999-9999-9999"));
+        greetCustomerConsumer.accept(customer);
 
         /**
          * 引数が2つの場合
          */
-        BiConsumer<Customer, Boolean> greetCustomerConsumerV2 = (customer, showPhoneNumber) -> {
+        BiConsumer<Customer, Boolean> greetCustomerConsumerV2 = (c, showPhoneNumber) -> {
             if (showPhoneNumber) {
-                System.out.println("Hello " + customer.customerName + ", your phone number is : " + customer.customerPhoneNumber);
+                System.out.println("Hello " + c.customerName + ", your phone number is : " + c.customerPhoneNumber);
             } else {
-                System.out.println("Hello " + customer.customerName + ", your phone number is : ***********");
+                System.out.println("Hello " + c.customerName + ", your phone number is : ***********");
             }
         };
 
-        greetCustomerConsumerV2.accept(new Customer("Maria", "999-9999-9999"), false);
+        greetCustomerConsumerV2.accept(customer, false);
     }
 
     static class Customer {
