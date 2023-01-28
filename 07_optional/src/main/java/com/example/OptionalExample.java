@@ -1,4 +1,4 @@
-package com.eazybytes.java8;
+package com.example;
 
 import java.util.Locale;
 import java.util.Optional;
