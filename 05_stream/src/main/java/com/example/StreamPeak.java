@@ -5,7 +5,7 @@ import com.example.data.StudentDataBase;
 
 import java.util.stream.Collectors;
 
-public class Debug {
+public class StreamPeak {
     public static void main(String[] args) {
         var students = StudentDataBase
                 .getAllStudents()

@@ -1,6 +1,5 @@
 package fnif;
 
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class FunctionExample {
@@ -15,7 +14,7 @@ public class FunctionExample {
         }
 
         /**
-         * Functionで書いた場合
+         * Function<T, R>で書いた場合
          * 引数1つ、戻り値1つ
          */
         {
@@ -26,33 +25,9 @@ public class FunctionExample {
             int result = incrementThenMultiply.apply(1);
             System.out.println("STEP2: " + result);
         }
-
-        /**
-         * 普通に書いた場合
-         */
-        {
-            int result = incrementByOneAndMultiply(1,20);
-            System.out.println("STEP3: " + result);
-        }
-
-        /**
-         * BiFunctionで書いた場合
-         * 引数2つ、戻り値1つ
-         */
-        {
-            BiFunction<Integer, Integer, Integer> incrementByOneAndMultiplyFn =
-                    (number, numToMultiplyBy) -> (number + 1) * numToMultiplyBy;
-
-            int result = incrementByOneAndMultiplyFn.apply(1, 20);
-            System.out.println("STEP4: " + result);
-        }
     }
 
     static int incrementByOne(int number) {
         return number + 1;
-    }
-
-    static int incrementByOneAndMultiply(int number, int numToMultiplyBy) {
-        return (number + 1) * numToMultiplyBy;
     }
 }

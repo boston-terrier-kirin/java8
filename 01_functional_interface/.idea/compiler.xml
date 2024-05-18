@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="functional_interface" />
+        <module name="01_functional_interface" />
       </profile>
     </annotationProcessing>
   </component>
